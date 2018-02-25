@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'core/css/tea_list.css' %}">
+{% endblock head %}
+
+{% block content %}
+<main class="container py-4">
+
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-6 offset-3">
+        <h1 class="display-4 text-center">Welcome to Teavana!</h1>
+        <p class="text-center">Here's our available loose-leaf teas</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid">
+  {% for tea in teas %}
+    {% include "core/tea_card.html" with tea=tea %}
+    {% include "core/tea_modal.html" with tea=tea %}
+  {% endfor %}
+  </div>
+
+</main>
+{% endblock content %}

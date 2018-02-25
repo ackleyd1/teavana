@@ -1,0 +1,11 @@
+{% load static %}
+
+<div class="card">
+  <img class="card-img-top" src="{{ tea.image.url }}" alt="{{ tea }} image">
+  <div class="card-body">
+    <h4 class="card-title text-center">{{ tea }}</h4>
+  </div>
+  <div class="card-footer text-center">
+    <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#{{ tea.id }}">Details</button>
+  </div>
+</div>

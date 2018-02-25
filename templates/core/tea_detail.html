@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'core/css/tea_detail.css' %}">
+<script src="https://js.braintreegateway.com/web/dropin/1.9.4/js/dropin.min.js"></script>
+{% endblock head %}
+
+{% block content %}
+<main class="container py-4">
+
+  <div class="row">
+
+    <div class="col-3 text-center">
+      <img class="img-fluid" src="{{ tea.image.url }}" alt="{{ tea }} image">
+    </div>
+
+    <div class="col-9">
+      <h2>{{ tea.name }}</h2>
+      <p>{{ tea.description }}</p>
+      <p>${{ tea.price }}</p>
+
+      <form action="{{ tea.get_absolute_url }}" method="post" id="payment-form">
+        {% csrf_token %}
+        <input type="hidden" id="nonce" name="payment_method_nonce" />
+        <div id="dropin-container"></div>
+        <button type="button" class="btn btn-outline-primary" id="submit-button">Purchase</button>
+      </form>
+    </div>
+
+  </div>
+
+</main>
+
+<script>
+    var form = document.querySelector('#payment-form');
+    var button = document.querySelector('#submit-button');
+
+    braintree.dropin.create({
+      authorization: '{{ client_token }}',
+      container: '#dropin-container'
+    }, function (createErr, instance) {
+      button.addEventListener('click', function () {
+        instance.requestPaymentMethod(function (err, payload) {
+          if (err) {
+            console.log('Error', err);
+            return;
+          }
+          // Add the nonce to the form and submit
+          document.querySelector('#nonce').value = payload.nonce;
+          form.submit();
+        });
+      });
+    });
+  </script>
+{% endblock content %}

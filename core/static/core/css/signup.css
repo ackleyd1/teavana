@@ -1,0 +1,19 @@
+main {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+#signup {
+  margin: 0 auto;
+}
+
+@media only screen and (min-width: 993px) {
+  /* lg */
+  #signup {
+    max-width: 50%;
+  }
+}
+
+#signup .alert ul {
+  margin-bottom: 0;
+}

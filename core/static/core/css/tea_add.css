@@ -1,0 +1,10 @@
+@media only screen and (min-width: 993px) {
+  /* lg */
+  #tea-add {
+    max-width: 50%;
+  }
+}
+
+#tea-add {
+  margin: 0 auto;
+}
