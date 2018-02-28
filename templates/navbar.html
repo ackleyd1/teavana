@@ -2,7 +2,7 @@
 {% load static %}
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
-    <a class="navbar-brand" href="{% url 'tea-list' %}">
+    <a class="navbar-brand" href="{% url 'teas:list' %}">
       <img src="{% static 'core/images/teavana.png' %}" alt="Teavana logo">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,7 +13,7 @@
 
         {% if request.user.is_superuser %}
         <li class="nav-item mr-2 my-1 my-lg-0">
-          <a class="btn btn-outline-primary" role="button" href="{% url 'tea-create' %}">Add Tea</a>
+          <a class="btn btn-outline-primary" role="button" href="{% url 'teas:create' %}">Add Tea</a>
         </li>
         {% endif %}
         {% if not request.user.is_authenticated %}

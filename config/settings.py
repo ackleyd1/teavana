@@ -1,4 +1,5 @@
 import os
+import braintree
 
 from unipath import Path
 from django.core.exceptions import ImproperlyConfigured
@@ -16,7 +17,7 @@ ROOT_DIR = Path(__file__).ancestor(2)
 
 SECRET_KEY = get_env_variable('SECRET_KEY')
 DEBUG = True
-ALLOWED_HOSTS = ['web']
+ALLOWED_HOSTS = ['ravedave.co', 'web']
 WSGI_APPLICATION = 'config.wsgi.application'
 ROOT_URLCONF = 'core.urls'
 
@@ -31,7 +32,9 @@ USE_TZ = True
 # Application definition
 
 LOCAL_APPS = [
+    'carts',
     'core',
+    'teas',
 ]
 
 DJANGO_APPS = [
@@ -154,3 +157,10 @@ AUTHENTICATION_BACKENDS = [
 BRAINTREE_MERCHANT_ID = get_env_variable("BRAINTREE_MERCHANT_ID")
 BRAINTREE_PUBLIC_KEY = get_env_variable("BRAINTREE_PUBLIC_KEY")
 BRAINTREE_PRIVATE_KEY = get_env_variable("BRAINTREE_PRIVATE_KEY")
+
+braintree.Configuration.configure(
+    braintree.Environment.Sandbox,
+    merchant_id=BRAINTREE_MERCHANT_ID,
+    public_key=BRAINTREE_PUBLIC_KEY,
+    private_key=BRAINTREE_PRIVATE_KEY
+)
