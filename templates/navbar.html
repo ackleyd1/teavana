@@ -23,6 +23,10 @@
         <li class="nav-item mr-2 my-1 my-lg-0">
           <a class="btn btn-outline-primary" role="button" href="{% url 'account_signup' %}">Signup</a>
         </li>
+        {% else %}
+        <li class="nav-item mr-2 my-1 my-lg-0">
+          <a class="btn btn-outline-primary" role="button" href="{% url 'carts:detail' pk=user.cart.id %}"><i class="fas fa-shopping-cart"></i></a>
+        </li>
         {% endif %}
 
       </ul>
