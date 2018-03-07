@@ -10,7 +10,16 @@ class CartItem(TimeStampedModel):
     tea = models.ForeignKey('teas.Tea', on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField(default=1)
 
+    def price(self):
+        return self.quantity * self.tea.price
+
 class Cart(TimeStampedModel):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     items = models.ManyToManyField('teas.Tea', through=CartItem)
+
+    def total(self):
+        total_price = 0
+        for item in self.cartitem_set.all():
+            total_price += item.price()
+        return total_price

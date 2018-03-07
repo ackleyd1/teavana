@@ -20,7 +20,7 @@
     <div class="col-9">
       <h2>{{ tea.name }}</h2>
       <p>{{ tea.description }}</p>
-      <p>${{ tea.price }}</p>
+      <p><span style="color:green">${{ tea.price }}</span> per ounce</p>
 
       <form action="{{ tea.get_absolute_url }}" method="post" id="payment-form">
         {% csrf_token %}

@@ -11,5 +11,44 @@
 
   <h1 class="text-center display-3">Shopping Cart</h1>
 
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col" class="text-center"></th>
+        <th scope="col">Tea</th>
+        <th scope="col" class="text-right">Quantity</th>
+        <th scope="col" class="text-right">Cost</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in cart.cartitem_set.all %}
+      <tr>
+        <td class="text-center"><img src="{{ item.tea.image.url }}" height="64" alt="{{ item.tea }} image"></td>
+        <td class="align-middle">{{ item.tea }}</td>
+        <td class="text-right align-middle">{{ item.quantity }}</td>
+        <td class="text-right align-middle"><span>${{ item.price }}</span></td>
+        <td class="align-middle">
+          <form class="form-inline" action="{% url 'carts:delete' cart_pk=cart.id pk=item.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-outline-danger">
+              <i class="fas fa-times"></i>
+            </button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+      <tr>
+        <td colspan="4" class="text-right">Total: ${{ cart.total }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="row">
+    <div class="col-12 text-center">
+      <a class="btn btn-outline-primary" href="" role="button">Checkout</a>
+    </div>
+  </div>
+
 </main>
 {% endblock content %}

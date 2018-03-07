@@ -4,3 +4,4 @@
 /static
 /media
 *.json
+__pycache__/

@@ -14,8 +14,16 @@
         </div>
         <p class="card-text">{{ tea.description }}</p>
       </div>
-      <div class="modal-footer">
-          <a role="button" class="btn btn-outline-primary mx-auto" href="{{ tea.get_absolute_url }}">Buy</a>
+      <div class="modal-footer mx-auto">
+        {% if request.user.is_authenticated %}
+        <form action="{% url 'carts:add' pk=request.user.cart.id %}" method="post">
+          {% csrf_token %}
+          <input type="hidden" name="tea" value="{{ tea.id }}">
+          <button class="btn btn-outline-primary" type="submit" name="button">Add to cart</button>
+        </form>
+        {% else %}
+        <a class="btn btn-outline-primary" role="button" href="{% url 'account_login' %}">Log in to shop</a>
+        {% endif %}
       </div>
     </div>
   </div>

@@ -1,31 +1,12 @@
 version: '3'
 
 services:
-  db:
-    image: postgres
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-  web:
+  app:
     build: .
-    command: bash -c "python manage.py collectstatic --noinput && python manage.py makemigrations && python manage.py migrate && gunicorn --bind 0.0.0.0:80 config.wsgi"
-    volumes:
-      - .:/teavana
-    expose:
-      - "80"
-    depends_on:
-      - db
-    env_file:
-      - .env
-  nginx:
-    image: nginx:latest
-    volumes:
-      - ./teavana.conf:/etc/nginx/conf.d/teavana.conf
-      - ./static:/static
-      - ./media:/media
+    command: gunicorn --bind 0.0.0.0:80 config.wsgi
     ports:
       - "80:80"
-    command: /bin/bash -c "envsubst < /etc/nginx/conf.d/teavana.conf > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
-    depends_on:
-      - web
-volumes:
-  pgdata:
+    volumes:
+      - .:/teavana
+    env_file:
+      - .env

@@ -17,7 +17,7 @@ ROOT_DIR = Path(__file__).ancestor(2)
 
 SECRET_KEY = get_env_variable('SECRET_KEY')
 DEBUG = True
-ALLOWED_HOSTS = ['ravedave.co', 'web']
+ALLOWED_HOSTS = ['teavana.ravedave.co', 'localhost']
 WSGI_APPLICATION = 'config.wsgi.application'
 ROOT_URLCONF = 'core.urls'
 
@@ -34,6 +34,7 @@ USE_TZ = True
 LOCAL_APPS = [
     'carts',
     'core',
+    'orders',
     'teas',
 ]
 
@@ -52,6 +53,8 @@ THIRD_PARTY_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'storages',
+    'debug_toolbar',
 ]
 
 INSTALLED_APPS = LOCAL_APPS + DJANGO_APPS + THIRD_PARTY_APPS
@@ -64,9 +67,19 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+def show_toolbar(request):
+    if request.user and request.user.username == 'ackleyd1':
+        return True
+    return False
+
+DEBUG_TOOLBAR_CONFIG = {
+    'SHOW_TOOLBAR_CALLBACK': 'config.settings.show_toolbar',
+}
 
 # Templates definition
 
@@ -93,10 +106,11 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'HOST': 'db',
-        'PORT': 5432,
+        'NAME': 'teavana',
+        'USER': 'ackleyd1',
+        'PASSWORD': '',
+        'HOST': 'docker.for.mac.host.internal',
+        'PORT': '5432',
     }
 }
 
@@ -120,10 +134,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Static files (CSS, JavaScript, Images)
 
-STATIC_URL = '/static/'
 STATIC_ROOT = ROOT_DIR.child('static')
 
-MEDIA_URL = '/media/'
 MEDIA_ROOT = ROOT_DIR.child('media')
 
 # Allauth
@@ -166,3 +178,21 @@ braintree.Configuration.configure(
     public_key=BRAINTREE_PUBLIC_KEY,
     private_key=BRAINTREE_PRIVATE_KEY
 )
+
+AWS_ACCESS_KEY_ID = get_env_variable("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY = get_env_variable("AWS_SECRET_ACCESS_KEY")
+AWS_STORAGE_BUCKET_NAME = get_env_variable("AWS_STORAGE_BUCKET_NAME")
+AWS_S3_CUSTOM_DOMAIN = get_env_variable("AWS_S3_CUSTOM_DOMAIN")
+
+AWS_LOCATION = 'static'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, "media")
+
+from storages.backends.s3boto3 import S3Boto3Storage
+
+class MediaStorage(S3Boto3Storage):
+    location = 'media'
+    file_overwrite = False
+
+DEFAULT_FILE_STORAGE = 'config.settings.MediaStorage'

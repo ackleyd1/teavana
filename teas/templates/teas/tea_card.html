@@ -4,6 +4,7 @@
   <img class="card-img-top" src="{{ tea.image.url }}" alt="{{ tea }} image">
   <div class="card-body">
     <h4 class="card-title text-center">{{ tea }}</h4>
+    <p class="card-text text-center"><span style="color:green">${{ tea.price }}</span> per ounce</p>
   </div>
   <div class="card-footer text-center">
     <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#{{ tea.id }}">Details</button>
