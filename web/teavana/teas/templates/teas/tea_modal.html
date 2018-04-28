@@ -1,0 +1,31 @@
+{% load static %}
+<div class="modal fade" id="{{ tea.id }}" tabindex="-1" role="dialog" aria-labelledby="{{ tea.id }}" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{ tea.name }}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="text-center">
+          <img class="img-fluid" src="{{ tea.image.url }}" alt="{{ tea }} image">
+        </div>
+        <p class="card-text">{{ tea.description }}</p>
+      </div>
+      <div class="modal-footer mx-auto">
+        {% if request.user.is_authenticated %}
+        <form action="{% url 'carts:add' pk=request.user.cart.id %}" method="post">
+          {% csrf_token %}
+          <input type="hidden" name="tea" value="{{ tea.id }}">
+          <button class="btn btn-outline-primary" type="submit" name="button">Add to cart</button>
+        </form>
+        {% else %}
+        <a class="btn btn-outline-primary" role="button" href="{% url 'account_login' %}">Log in to shop</a>
+        {% endif %}
+        <a class="btn btn-outline-primary" role="button" href="{% url 'teas:detail' pk=tea.id %}">View more</a>
+      </div>
+    </div>
+  </div>
+</div>

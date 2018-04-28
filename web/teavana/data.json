@@ -1,0 +1,158 @@
+[
+{
+    "model": "teas.tea",
+    "pk": "0ac56851-10ae-43db-9b78-8c6acbbc668f",
+    "fields": {
+        "created": "2018-02-28T17:04:01.619Z",
+        "updated": "2018-02-28T17:04:01.619Z",
+        "name": "Berry Kiwi Colada Herbal Tea",
+        "slug": "berry-kiwi-colada-herbal-tea",
+        "description": "Bold flavors of strawberry, kiwi, and prickly pear with sweet pineapple and mango. Loaded with the flavors of kiwi, prickly pear, mango, pineapple and strawberry with just a hint of creamy coconut, this tropical taste adventure creates the perfect getaway to your own personal paradise.",
+        "price": "12.98",
+        "image": "teas/berry-kiwi-colada-herbal-tea.jpg"
+    }
+},
+{
+    "model": "teas.tea",
+    "pk": "0bb0360b-4449-4364-b8f2-ee86a2dfbee9",
+    "fields": {
+        "created": "2018-02-28T16:50:58.110Z",
+        "updated": "2018-02-28T16:50:58.110Z",
+        "name": "Raspberry Limeade Tea Blend",
+        "slug": "raspberry-limeade-tea-blend",
+        "description": "Beautiful balanced myriad of berries with an elegant balsamic finish blended with a burst of lime. Cool off with Teavana's unique herbal tea take on refreshing raspberry limeade, a Summer favorite.",
+        "price": "9.98",
+        "image": "teas/raspberry-limeade-tea-blend.jpg"
+    }
+},
+{
+    "model": "teas.tea",
+    "pk": "21a926d4-ac9f-4178-ae8d-adea2161f655",
+    "fields": {
+        "created": "2018-02-28T17:04:57.515Z",
+        "updated": "2018-02-28T17:04:57.515Z",
+        "name": "Youthberry White Tea",
+        "slug": "youthberry-white-tea",
+        "description": "Refreshing sweet pineapple and fruity a\u00e7ai berry infusion with subtle floral finish. Delicate white tea gets its youthful blush from red currants, a\u00e7ai berry, hibiscus and rose petals. Candied pineapple and mango pieces mingle with Fuji and golden delicious apples in this sweetly timeless elixir.",
+        "price": "14.98",
+        "image": "teas/youthberry-white-tea.jpg"
+    }
+},
+{
+    "model": "teas.tea",
+    "pk": "308530e1-0b56-4751-a6dc-0e435233066c",
+    "fields": {
+        "created": "2018-02-28T16:56:01.906Z",
+        "updated": "2018-02-28T16:56:01.906Z",
+        "name": "Youthberry Wild Orange Blossom Tea Blend",
+        "slug": "youthberry-wild-orange-blossom-tea-blend",
+        "description": "Reinvigorate your life with this delicious blend of white and herbal teas. This blend combines Youthberry white tea with Wild Orange Blossom herbal tea for an explosion of pineapple citrus flavor. With the added punch of acai, red currants, and mango, this blend is sure to please the palate.",
+        "price": "12.98",
+        "image": "teas/youthberry-wild-orange-blossom-tea-blend.jpg"
+    }
+},
+{
+    "model": "teas.tea",
+    "pk": "381051c6-2157-4df8-ab66-9ca710a4842b",
+    "fields": {
+        "created": "2018-02-28T16:52:30.590Z",
+        "updated": "2018-02-28T16:52:30.590Z",
+        "name": "Wild Orange Blossom Herbal Tea",
+        "slug": "wild-orange-blossom-herbal-tea",
+        "description": "Refreshing orange infusion with light floral undertones. A tribute to the plentiful citrus groves along the Indian River, this bright favorite blends orange slices and pretty rose petals.",
+        "price": "6.98",
+        "image": "teas/wild-orange-blossom-herbal-tea.jpg"
+    }
+},
+{
+    "model": "teas.tea",
+    "pk": "42d944fb-f51e-4daa-a854-2b46082201ab",
+    "fields": {
+        "created": "2018-02-28T17:01:15.046Z",
+        "updated": "2018-02-28T17:01:15.046Z",
+        "name": "Weight To Go! Pu-erh Tea",
+        "slug": "weight-to-go-pu-erh-tea",
+        "description": "Complex flavors of strawberry, apple, and hibiscus are followed by refreshing mint. Enticing and tantalizing, this rosy blush blend of pu-erh black and green oolong teas merge to create an intoxicating mix of sweet fruit with bright mint. Sweet strawberries and golden delicious apples swirl into peppermint and spearmint and create guilt-free beauty inside and out.",
+        "price": "6.98",
+        "image": "teas/weight-to-go-pu-erh-tea.jpg"
+    }
+},
+{
+    "model": "teas.tea",
+    "pk": "835fcf95-8b8c-4679-af1d-b2f0b708ee7f",
+    "fields": {
+        "created": "2018-02-28T17:07:00.268Z",
+        "updated": "2018-02-28T17:07:00.268Z",
+        "name": "Mulled Pomegranate Cider Herbal Tea",
+        "slug": "mulled-pomegranate-cider-herbal-tea",
+        "description": "A deliciously vibrant fall tea. Inspired by hand-crafted ciders, this full-bodied herbal blend is packed with bright pomegranate, juicy berries and sweet spices. We love it hot or iced. Made with all-natural ingredients.",
+        "price": "11.98",
+        "image": "teas/mulled-pomegranate-cider-herbal-tea.jpg"
+    }
+},
+{
+    "model": "teas.tea",
+    "pk": "916061ce-c8ef-4204-9e3b-78f9f833144b",
+    "fields": {
+        "created": "2018-02-28T17:11:23.158Z",
+        "updated": "2018-02-28T17:11:23.158Z",
+        "name": "Very Berry White Tea",
+        "slug": "very-berry-white-tea",
+        "description": "Bright flavors of grapes, hibiscus, and blueberry. This luscious multi-berry blend of grapes, elderberries, black currants and blueberries is elegantly infused with high-grade mao feng white tea. The ripe, juicy berries are enhanced with tart hibiscus making a bold berry treat, enjoyed hot or iced.",
+        "price": "9.98",
+        "image": "teas/very-berry-white-tea.jpg"
+    }
+},
+{
+    "model": "teas.tea",
+    "pk": "a1a05c44-c445-4125-ab44-0bc115c277fb",
+    "fields": {
+        "created": "2018-02-28T17:08:30.716Z",
+        "updated": "2018-02-28T17:08:30.716Z",
+        "name": "Strawberry Grapefruit Xue Long Green Tea",
+        "slug": "strawberry-grapefruit-xue-long-green-tea",
+        "description": "Bold, bright flavors of pink grapefruit, balanced by sweet strawberries, apples, and lemongrass. Strawberry, apple, sliced orange, and lemongrass are complemented with a squeeze of tart grapefruit flavor and then balanced with soft notes of marigold and hibiscus. Best over ice, this invigorating green tea infusion swirls sweet and tart together for a refreshing tea as unique as you.",
+        "price": "14.98",
+        "image": "teas/strawberry-grapefruit-xue-long-green-tea.jpeg"
+    }
+},
+{
+    "model": "teas.tea",
+    "pk": "d5137ae5-29c9-45c3-9704-40b891541b93",
+    "fields": {
+        "created": "2018-02-28T17:12:13.602Z",
+        "updated": "2018-02-28T17:12:13.602Z",
+        "name": "Strawberry Cream White Tea",
+        "slug": "strawberry-cream-white-tea",
+        "description": "Lush strawberries and sweet cream. Imagine luscious peaks of whipped cream brightened with slices of ripe strawberries. This rich and dairy-free dessert treat is served on a snowy-white tea base reminiscent of a delightful, creamy, strawberry dream!",
+        "price": "12.98",
+        "image": "teas/strawberry-cream-white-tea.jpg"
+    }
+},
+{
+    "model": "teas.tea",
+    "pk": "f8d9a165-75d8-4b91-ac87-bd4c193582d3",
+    "fields": {
+        "created": "2018-02-28T16:55:04.325Z",
+        "updated": "2018-02-28T16:55:04.325Z",
+        "name": "Peach Tranquility Herbal Tea",
+        "slug": "peach-tranquility-herbal-tea",
+        "description": "Sweet peach infusion with light citrus and floral undertones. A peaceful medley of soft peach and sweet pineapple gently falls across your palate, while calming Roman chamomile and lemon verbena shower over you, creating a tranquil treat.",
+        "price": "6.98",
+        "image": "teas/peach-tranquility-herbal-tea.jpg"
+    }
+},
+{
+    "model": "teas.tea",
+    "pk": "fc730239-6e7d-4fa0-899b-0526facd86be",
+    "fields": {
+        "created": "2018-02-28T16:53:33.583Z",
+        "updated": "2018-02-28T16:53:33.583Z",
+        "name": "Pineapple Berry Blue Tea Blend",
+        "slug": "pineapple-berry-blue-tea-blend",
+        "description": "Juicy, vibrant berry flavors blend beautifully with the sweet, tangy citrus to create a flavorful and balanced blend that is perfect for Iced Tea! Dazzingly delicious blend of Blueberry Bliss + Pineapple Kona Pop that bursts with the tangy-sweet flavor of hibiscus, citrus and bold berry.",
+        "price": "7.48",
+        "image": "teas/pineapple-berry-blue-tea-blend.jpg"
+    }
+}
+]

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+{% endblock head %}
+
+{% block content %}
+<main class="container py-4">
+
+  <h1 class="text-center display-3">Order</h1>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col" class="text-center"></th>
+        <th scope="col">Tea</th>
+        <th scope="col" class="text-right">Quantity</th>
+        <th scope="col" class="text-right">Cost</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in order.orderitem_set.all %}
+      <tr>
+        <td class="text-center"><img src="{{ item.tea.image.url }}" height="64" alt="{{ item.tea }} image"></td>
+        <td class="align-middle">{{ item.tea }}</td>
+        <td class="text-right align-middle">{{ item.quantity }}</td>
+        <td class="text-right align-middle"><span>${{ item.price }}</span></td>
+      </tr>
+      {% endfor %}
+      <tr>
+        <td colspan="4" class="text-right">Total: ${{ order.total }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</main>
+{% endblock content %}

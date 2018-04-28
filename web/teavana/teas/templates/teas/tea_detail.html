@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'teas/css/tea_detail.css' %}">
+{% endblock head %}
+
+{% block content %}
+<main class="container py-4">
+
+  <div class="row">
+
+    <div class="col-3 text-center">
+      <img class="img-fluid" src="{{ tea.image.url }}" alt="{{ tea }} image">
+    </div>
+
+    <div class="col-9">
+      <h2>{{ tea.name }}</h2>
+      <p>{{ tea.description }}</p>
+      <p><span style="color:green">${{ tea.price }}</span> per ounce</p>
+    </div>
+
+  </div>
+
+</main>
+{% endblock content %}

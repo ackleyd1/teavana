@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="{% url 'teas:list' %}">
+      <img src="{% static 'images/teavana.png' %}" alt="Teavana logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbar">
+      <ul class="navbar-nav ml-auto">
+
+        {% if request.user.is_superuser %}
+        <li class="nav-item mr-2 my-1 my-lg-0">
+          <a class="btn btn-outline-primary" role="button" href="{% url 'teas:create' %}">Add Tea</a>
+        </li>
+        {% endif %}
+        {% if not request.user.is_authenticated %}
+        <li class="nav-item mr-2 my-1 my-lg-0">
+          <a class="btn btn-outline-primary" role="button" href="{% url 'account_login' %}">Login</a>
+        </li>
+        <li class="nav-item mr-2 my-1 my-lg-0">
+          <a class="btn btn-outline-primary" role="button" href="{% url 'account_signup' %}">Signup</a>
+        </li>
+        {% else %}
+        <li class="nav-item mr-2 my-1 my-lg-0">
+          <a class="btn btn-outline-primary" role="button" href="{% url 'carts:detail' pk=request.user.cart.id %}"><i class="fas fa-shopping-cart"></i><span class="badge">{{ request.user.cart.cartitem_set.count }}</span></a>
+        </li>
+        {% endif %}
+
+      </ul>
+      {% if request.user.is_authenticated %}
+      <form class="form-inline my-1 my-lg-0" action="{% url 'account_logout' %}" method="post">
+        {% csrf_token %}
+        <button class="btn btn-outline-primary" type="submit">Logout</button>
+      </form>
+      {% endif %}
+    </div>
+  </div>
+</nav>

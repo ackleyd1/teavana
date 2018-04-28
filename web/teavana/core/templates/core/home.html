@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'core/css/home.css' %}">
+{% endblock head %}
+
+{% block content %}
+<main class="container py-4">
+    <div class="jumbotron text-center">
+        <h2 class="display-3">Ecommerce simulation</h2>
+        <p>This is an ecommerce simulation for Digital Business MI 472</p>
+        <p>David Ackley</p>
+        <a href="{% url 'teas:list' %}" role="button" class="btn btn-outline-primary">Browse Teas</a>
+    </div>
+</main>
+{% endblock content %}

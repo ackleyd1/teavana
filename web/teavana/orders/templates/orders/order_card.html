@@ -1,0 +1,9 @@
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title text-center">{{ order }}</h4>
+    <p class="card-text text-center"><span style="color:green">${{ order.total }}</span></p>
+  </div>
+  <div class="card-footer text-center">
+    <a class="btn btn-outline-primary" href="{{ order.get_absolute_url }}" role="button">View Order</a>
+  </div>
+</div>

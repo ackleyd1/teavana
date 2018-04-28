@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'orders/css/order_create.css' %}">
+{% endblock head %}
+
+{% block content %}
+<main class="container my-4">
+
+  <h1 class="text-center display-3">Checkout</h1>
+
+  <div class="grid">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col" class="text-center"></th>
+          <th scope="col">Tea</th>
+          <th scope="col" class="text-right">Quantity</th>
+          <th scope="col" class="text-right">Cost</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in request.user.cart.cartitem_set.all %}
+        <tr>
+          <td class="text-center"><img src="{{ item.tea.image.url }}" height="64" alt="{{ item.tea }} image"></td>
+          <td class="align-middle">{{ item.tea }}</td>
+          <td class="text-right align-middle">{{ item.quantity }}</td>
+          <td class="text-right align-middle"><span>${{ item.price }}</span></td>
+        </tr>
+        {% endfor %}
+        <tr>
+          <td colspan="4" class="text-right">Total: ${{ request.user.cart.total }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="left-pane">
+      <h2>Billing Address</h2>
+      {% crispy form %}
+    </div>
+  </div>
+
+</main>
+{% endblock content %}

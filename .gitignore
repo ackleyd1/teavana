@@ -1,7 +1,6 @@
 *.DS_Store
 *.pyc
 .env
-/static
-/media
-*.json
+collected_static
+media
 __pycache__/
